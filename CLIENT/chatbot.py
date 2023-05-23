@@ -2,6 +2,7 @@ import random
 from llama_index import StorageContext,load_index_from_storage
 import torch
 
+
 class MedGPT_chatbot():
 
     def __init__(self):
