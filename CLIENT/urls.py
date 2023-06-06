@@ -4,7 +4,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 from .forms import UserLoginForm
 from django.contrib.auth.views import LoginView, LogoutView
-from .lists import ConversationDelete
 
 urlpatterns = [
     path('' , LoginView.as_view(
@@ -21,7 +20,7 @@ urlpatterns = [
     path('chatbot/', views.client_chatbot , name='client-chatbot'),
     path('api/get-message/', views.client_get_message , name='client-get-message'),
     path('api/send-message/', views.client_send_message , name='client-send-message'),
-    path('api/delete-conversation/<int:pk>', ConversationDelete.as_view() , name='client-delete-conversation'),
+    path('api/delete-conversation/<int:pk>', views.client_delete_conversation , name='client-delete-conversation'),
     
 ]+ static(
         settings.STATIC_URL, 

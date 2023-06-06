@@ -45,6 +45,10 @@ def client_chatbot(request):
                         'conversations' : conversations
                     }
                 )
+def client_delete_conversation(request,pk) :
+    conversation = Conversation.objects.get(id=pk)
+    conversation.delete()
+    return redirect('client-chatbot')
 
 def client_get_message(request):
     conversation_id = request.GET.get('conversation_id')
